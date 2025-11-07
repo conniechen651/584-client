@@ -1,0 +1,7 @@
+<h1>District Score</h1>
+@if (scoreData) {
+    <p>{{ scoreData.name }} has a math score of {{ scoreData.mathScore }}, a reading score of {{ scoreData.readingScore }}, and a writing score of {{ scoreData.writingScore }}.</p>
+}
+<div>
+    <a [routerLink]="['/district']">Back to Districts</a>
+</div>

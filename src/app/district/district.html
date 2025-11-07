@@ -1,1 +1,17 @@
-<p>district works!</p>
+<h1>District List</h1>
+<table class="table table-striped"> 
+  <thead>
+    <td>Id</td>
+    <td>Name</td>
+    <td>County</td>
+  </thead>
+  <tbody>
+     @for (district of districts; track $index){
+        <tr>
+            <td><a [routerLink]="['/district-score', district.id]">{{ district.id }}</a></td>
+            <td>{{ district.name }}</td>
+            <td>{{ district.county }}</td>
+        </tr>
+     }
+  </tbody>
+</table>
