@@ -1,6 +1,23 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { AppComponent } from './app/app.component';
+import { provideAuth0 } from '@auth0/auth0-angular';
+import { mergeApplicationConfig } from '@angular/core';
+import { environment } from './environments/environment.development';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+
+const auth0Config = mergeApplicationConfig(appConfig, {
+  providers: [
+    provideAuth0({
+      domain: environment.auth0.domain,
+      clientId: environment.auth0.clientId,
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    })
+  ]
+});
+
+bootstrapApplication(AppComponent, auth0Config).catch((err) =>
+  console.error(err)
+);

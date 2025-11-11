@@ -6,7 +6,7 @@
     <td>County</td>
   </thead>
   <tbody>
-     @for (district of districts; track $index){
+     @for (district of districts$ | async; track $index){
         <tr>
             <td><a [routerLink]="['/district-score', district.id]">{{ district.id }}</a></td>
             <td>{{ district.name }}</td>

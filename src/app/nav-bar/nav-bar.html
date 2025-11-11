@@ -1,9 +1,10 @@
-<header>
+<header class="navbar">
     <mat-toolbar color="primary">
         <button mat-icon-button [routerLink]="['/']">
             <mat-icon>home</mat-icon>
         </button> |
         <a mat-flat-button color="primary" [routerLink]="['/school']">School</a> |
-        <a mat-flat-button color="primary" [routerLink]="['/district']">District</a>
+        <a mat-flat-button color="primary" [routerLink]="['/district']">District</a> |
+        <app-logout-button />
     </mat-toolbar>
 </header>

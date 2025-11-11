@@ -3,18 +3,18 @@ import { Router, RouterLink } from '@angular/router';
 import { DistrictData } from './district-data';
 import { HttpClient,  } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-district',
-  imports: [RouterLink],
+  imports: [RouterLink, AsyncPipe],
   templateUrl: './district.html',
   styleUrl: './district.scss'
 })
 export class District {
-  districts: DistrictData[] = [];
+  districts$: Observable<DistrictData[]>;
   constructor(http: HttpClient){
-    http.get<DistrictData[]>(`${environment.apiUrl}/api/Districts`).subscribe(result => {
-      this.districts = result;
-    });
+    this.districts$ = http.get<DistrictData[]>(`${environment.apiUrl}/api/Districts`);
   }
 }

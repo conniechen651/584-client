@@ -1,0 +1,14 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1030; /* ensure it's above page content */
+}
+
+/* adjust this selector to match your template's element (e.g. .navbar) */
+.navbar {
+  margin: 0;
+  width: 100%;
+}
