@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { DistrictData } from './district-data';
 import { HttpClient,  } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
