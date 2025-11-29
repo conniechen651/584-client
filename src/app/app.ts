@@ -11,7 +11,4 @@ import { environment } from '../environments/environment';
 })
 export class App {
   protected readonly title = signal('584-client');
-  constructor() {
-    console.log('BUILD ENV:', environment); // will show apiUrl used at build time
-  }
 }
