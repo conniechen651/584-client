@@ -5,6 +5,13 @@
         </button> |
         <a mat-flat-button color="primary" [routerLink]="['/school']">School</a> |
         <a mat-flat-button color="primary" [routerLink]="['/district']">District</a> |
-        <app-logout-button />
+        <span class="separator"></span>
+        @if (!(auth.isLoading$ | async) && !(auth.error$ | async)) {
+            @if(auth.isAuthenticated$ | async) {
+                <app-logout-button />
+            } @else {
+                <app-login-button></app-login-button>
+            }
+        }
     </mat-toolbar>
 </header>

@@ -1,6 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { App } from './app/app';
 import { provideAuth0 } from '@auth0/auth0-angular';
 import { mergeApplicationConfig } from '@angular/core';
 import { environment } from './environments/environment.development';
@@ -18,6 +18,6 @@ const auth0Config = mergeApplicationConfig(appConfig, {
   ]
 });
 
-bootstrapApplication(AppComponent, auth0Config).catch((err) =>
+bootstrapApplication(App, auth0Config).catch((err) =>
   console.error(err)
 );
