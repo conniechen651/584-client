@@ -5,6 +5,8 @@
         </button> |
         <a mat-flat-button color="primary" [routerLink]="['/school']">School</a> |
         <a mat-flat-button color="primary" [routerLink]="['/district']">District</a> |
+        <a mat-flat-button color="primary" [routerLink]="['/add-district']">Add District</a> |
+        <a mat-flat-button color="primary" [routerLink]="['/add-school']">Add School</a> 
         <span class="separator"></span>
         @if (!(auth.isLoading$ | async) && !(auth.error$ | async)) {
             @if(auth.isAuthenticated$ | async) {

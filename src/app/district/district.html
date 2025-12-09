@@ -1,19 +1,18 @@
 <h1>District List</h1>
+
 <table class="table table-striped"> 
-  <thead>
-    <td>Id</td>
-    <td>Name</td>
-    <td>County</td>
-  </thead>
-  <tbody>
-     @for (district of districts$ | async; track $index){
-        <tr>
-            <td><a [routerLink]="['/district-score', district.id]">{{ district.id }}</a></td>
-            <td>{{ district.name }}</td>
-            <td>{{ district.county }}</td>
-        </tr>
-     }
-  </tbody>
-</table>
-<ng-template #loading><p>Loading…</p></ng-template>
-<ng-template #notFound><p>Data not found.</p></ng-template>
+    <thead>
+      <td>Id</td>
+      <td>Name</td>
+      <td>County</td>
+    </thead>
+    <tbody>
+      @for (district of districts$ | async; track $index){
+          <tr>
+              <td><a [routerLink]="['/district-score', district.id]">{{ district.id }}</a></td>
+              <td>{{ district.name }}</td>
+              <td>{{ district.county }}</td>
+          </tr>
+      }
+    </tbody>
+  </table>

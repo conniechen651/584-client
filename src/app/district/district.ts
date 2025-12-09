@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { DistrictData } from './district-data';
 import { HttpClient,  } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { catchError, finalize, Observable, of, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -14,6 +14,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class District {
   districts$: Observable<DistrictData[]>;
+  
   constructor(http: HttpClient){
     this.districts$ = http.get<DistrictData[]>(`${environment.apiUrl}/api/Districts`);
   }
