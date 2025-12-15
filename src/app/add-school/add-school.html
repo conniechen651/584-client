@@ -1,42 +1,36 @@
 <div>
     <h1>Add a New School</h1>
-    @if (!(auth.isLoading$ | async) && !(auth.error$ | async)) {
-        @if(auth.isAuthenticated$ | async) {
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <label>Name</label>
-                <input type="text" formControlName="name" />
-                <br />
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label>Name</label>
+            <input type="text" formControlName="name" />
+            <br />
 
-                <label>District</label>
-                    <select id="district" formControlName="districtId" required>
-                        <option value="" disabled selected>District</option>
-                        @for (d of districts$ | async; track d.id) {
-                            <option [value]="d.id">{{ d.name }}</option>
-                        }
-                    </select>
-                <br />
+            <label>District</label>
+                <select id="district" formControlName="districtId" required>
+                    <option value="" disabled selected>District</option>
+                    @for (d of districts$ | async; track d.id) {
+                        <option [value]="d.id">{{ d.name }}</option>
+                    }
+                </select>
+            <br />
 
-                <label>Math score</label>
-                <input type="text" formControlName="mathScore" />
-                <br />
+            <label>Math score</label>
+            <input type="text" formControlName="mathScore" />
+            <br />
 
-                <label>Reading score</label>
-                <input type="text" formControlName="readingScore" />
-                <br />
+            <label>Reading score</label>
+            <input type="text" formControlName="readingScore" />
+            <br />
 
-                <label>Writing score</label>
-                <input type="text" formControlName="writingScore" />
-                <br />
+            <label>Writing score</label>
+            <input type="text" formControlName="writingScore" />
+            <br />
 
-                <label>Number of test takers</label>
-                <input type="text" formControlName="numTestTakers" />
-                <br />
+            <label>Number of test takers</label>
+            <input type="text" formControlName="numTestTakers" />
+            <br />
 
-                <button type="submit">Add School</button>
-            </form>
-        } @else {
-            <p>Please log in to add a new school and related info.</p>
-        }
-    }
+            <button type="submit">Add School</button>
+        </form>
     
 </div>

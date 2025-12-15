@@ -1,21 +1,14 @@
 <div>
     <h1>Add a New District</h1>
-    @if (!(auth.isLoading$ | async) && !(auth.error$ | async)) {
-        @if(auth.isAuthenticated$ | async) {
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <label>Name</label>
-                <input type="text" formControlName="name" />
-                <br />
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label>Name</label>
+            <input type="text" formControlName="name" />
+            <br />
 
-                <label>County</label>
-                <input type="text" formControlName="county" />
-                <br />
+            <label>County</label>
+            <input type="text" formControlName="county" />
+            <br />
 
-                <button type="submit">Add District</button>
-            </form>
-        } @else {
-            <p>Please log in to add a new district.</p>
-        }
-    }
-    
+            <button type="submit">Add District</button>
+        </form> 
 </div>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddDistrictService, DataModel } from '../service/district-service';
-import { AsyncPipe } from '@angular/common';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-add-district',
-  imports: [ReactiveFormsModule, AsyncPipe],
+  imports: [ReactiveFormsModule],
   templateUrl: './add-district.html',
   styleUrl: './add-district.scss'
 })

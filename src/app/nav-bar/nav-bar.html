@@ -8,12 +8,10 @@
         <a mat-flat-button color="primary" [routerLink]="['/add-district']">Add District</a> |
         <a mat-flat-button color="primary" [routerLink]="['/add-school']">Add School</a> 
         <span class="separator"></span>
-        @if (!(auth.isLoading$ | async) && !(auth.error$ | async)) {
-            @if(auth.isAuthenticated$ | async) {
-                <app-logout-button />
-            } @else {
-                <app-login-button></app-login-button>
-            }
+        @if (isLoggedIn) {
+            <a mat-flat-button color="primary" (click)="authService.logout()">Logout</a>
+        } @else {
+            <a mat-flat-button color="primary" [routerLink]="['/login']">Login</a>
         }
     </mat-toolbar>
 </header>
