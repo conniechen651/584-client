@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddSchoolService, DataModel } from '../service/school-service';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthService } from '../auth/auth-service';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';

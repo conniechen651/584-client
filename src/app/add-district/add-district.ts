@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddDistrictService, DataModel } from '../service/district-service';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthService } from '../auth/auth-service';
 
 @Component({
   selector: 'app-add-district',
