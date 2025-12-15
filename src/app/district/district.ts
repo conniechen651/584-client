@@ -5,6 +5,7 @@ import { HttpClient,  } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { catchError, finalize, Observable, of, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-district',
@@ -15,7 +16,7 @@ import { AsyncPipe } from '@angular/common';
 export class District {
   districts$: Observable<DistrictData[]>;
   
-  constructor(http: HttpClient){
+  constructor(http: HttpClient, private auth: AuthService){
     this.districts$ = http.get<DistrictData[]>(`${environment.apiUrl}/api/Districts`);
   }
 }

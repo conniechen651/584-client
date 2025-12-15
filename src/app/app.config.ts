@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http'; 
 import { routes } from './app.routes';
 import { authHttpInterceptorFn, provideAuth0 } from '@auth0/auth0-angular';
+import { environment } from '../environments/environment.development';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,15 +18,10 @@ export const appConfig: ApplicationConfig = {
       clientId: 'xcNuAFIjAK3Yzpq1rzLnBmtFtoxdGGgB',
       authorizationParams: {
         redirect_uri: window.location.origin,
-        audience: 'https://comp584server-h6g8b9bqdwfye8ab.canadacentral-01.azurewebsites.net',
-        scope: 'openid read:data write:data'
+        audience: 'https://comp584server-h6g8b9bqdwfye8ab.canadacentral-01.azurewebsites.net'
       },
       httpInterceptor: {
-        allowedList: [
-          'http://localhost:5089/api/*',
-          'https://comp584server-h6g8b9bqdwfye8ab.canadacentral-01.azurewebsites.net/api/*'
-
-        ]
+        allowedList: [`${environment.apiUrl}/*`]
       }
     })
   ]
