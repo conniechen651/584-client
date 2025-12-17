@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { AddSchoolService, DataModel } from '../service/school-service';
 import { AuthService } from '../auth/auth-service';
@@ -23,7 +23,7 @@ export class AddSchool implements OnInit{
   errorMessage = '';
   districts$: Observable<DistrictData[]> = of([]);
   
-  constructor(private dataService: AddSchoolService, public auth: AuthService, private http: HttpClient) {
+  constructor(private dataService: AddSchoolService, public auth: AuthService, private http: HttpClient, private cdr: ChangeDetectorRef ) {
     this.districts$ = this.http.get<DistrictData[]>(`${environment.apiUrl}/api/Districts`);
   }
 
@@ -68,6 +68,7 @@ export class AddSchool implements OnInit{
           this.submitError = true;
           this.errorMessage = error.error?.message || 'An error occurred while submitting the form';
           this.isSubmitting = false;
+          this.cdr.detectChanges(); 
         },
         complete: () => {
           this.isSubmitting = false;

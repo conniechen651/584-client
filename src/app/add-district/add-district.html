@@ -1,14 +1,45 @@
 <div>
-    <h1>Add a New District</h1>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <label>Name</label>
-            <input type="text" formControlName="name" />
-            <br />
+  <h1>Add a New District</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+        id="name"
+        type="text" 
+        formControlName="name"
+        [attr.aria-invalid]="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
+      />
+      @if (form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)) {
+        <span class="field-error">Name is required</span>
+      }
+    </div>
 
-            <label>County</label>
-            <input type="text" formControlName="county" />
-            <br />
+    <div class="form-group">
+      <label for="county">County</label>
+      <input 
+        id="county"
+        type="text" 
+        formControlName="county"
+        [attr.aria-invalid]="form.get('county')?.invalid && (form.get('county')?.dirty || form.get('county')?.touched)"
+      />
+      @if (form.get('county')?.invalid && (form.get('county')?.dirty || form.get('county')?.touched)) {
+        <span class="field-error">County is required</span>
+      }
+    </div>
 
-            <button type="submit">Add District</button>
-        </form> 
+    <button 
+      type="submit" 
+      [disabled]="form.invalid || isSubmitting"
+    >
+      {{ isSubmitting ? 'Adding...' : 'Add District' }}
+    </button>
+  </form>
+
+  @if (submitError && errorMessage) {
+    <p class="error" role="alert">{{ errorMessage }}</p>
+  }
+  
+  @if (submitSuccess) {
+    <p class="success" role="status">District added successfully!</p>
+  }
 </div>

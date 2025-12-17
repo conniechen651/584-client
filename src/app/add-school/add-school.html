@@ -1,36 +1,99 @@
 <div>
     <h1>Add a New School</h1>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <label>Name</label>
-            <input type="text" formControlName="name" />
-            <br />
-
-            <label>District</label>
-                <select id="district" formControlName="districtId" required>
-                    <option value="" disabled selected>District</option>
-                    @for (d of districts$ | async; track d.id) {
-                        <option [value]="d.id">{{ d.name }}</option>
-                    }
-                </select>
-            <br />
-
-            <label>Math score</label>
-            <input type="text" formControlName="mathScore" />
-            <br />
-
-            <label>Reading score</label>
-            <input type="text" formControlName="readingScore" />
-            <br />
-
-            <label>Writing score</label>
-            <input type="text" formControlName="writingScore" />
-            <br />
-
-            <label>Number of test takers</label>
-            <input type="text" formControlName="numTestTakers" />
-            <br />
-
-            <button type="submit">Add School</button>
-        </form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Name</label>
+        <input 
+            id="name"
+            type="text" 
+            formControlName="name"
+            [attr.aria-invalid]="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
+        />
+        @if (form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)) {
+            <span class="error">Name is required</span>
+        }
+    </div>
     
+
+    <div>
+        <label for="district">District</label>
+        <select id="district" formControlName="districtId" required>
+            <option value="" disabled selected>District</option>
+            @for (d of districts$ | async; track d.id) {
+                <option [value]="d.id">{{ d.name }}</option>
+            }
+        </select>
+        @if (form.get('districtId')?.invalid && (form.get('districtId')?.dirty || form.get('districtId')?.touched)) {
+            <span class="error">District is required</span>
+        }
+    </div>
+
+    <div>
+        <label for="mathScore">Math score</label>
+        <input 
+            id="mathScore"
+            type="text" 
+            formControlName="mathScore" 
+            [attr.aria-invalid]="form.get('mathScore')?.invalid && (form.get('mathScore')?.dirty || form.get('mathScore')?.touched)"
+        />
+        @if (form.get('mathScore')?.invalid && (form.get('mathScore')?.dirty || form.get('mathScore')?.touched)) {
+            <span class="error">Math score is required</span>
+        }
+    </div>
+
+    <div>
+        <label for="readingScore">Reading score</label>
+        <input 
+            id="readingScore"
+            type="text" 
+            formControlName="readingScore" 
+            [attr.aria-invalid]="form.get('readingScore')?.invalid && (form.get('readingScore')?.dirty || form.get('readingScore')?.touched)"
+        />
+        @if (form.get('readingScore')?.invalid && (form.get('readingScore')?.dirty || form.get('readingScore')?.touched)) {
+            <span class="error">Reading score is required</span>
+        }
+    </div>
+
+    <div>
+        <label for="writingScore">Writing score</label>
+        <input 
+            id="writingScore"
+            type="text" 
+            formControlName="writingScore" 
+            [attr.aria-invalid]="form.get('writingScore')?.invalid && (form.get('writingScore')?.dirty || form.get('writingScore')?.touched)"
+        />
+        @if (form.get('writingScore')?.invalid && (form.get('writingScore')?.dirty || form.get('writingScore')?.touched)) {
+            <span class="error">Writing score is required</span>
+        }
+    </div>
+
+
+    <div>
+        <label for="numTestTakers">Number of test takers</label>
+        <input 
+            id="numTestTakers"
+            type="text" 
+            formControlName="numTestTakers" 
+            [attr.aria-invalid]="form.get('numTestTakers')?.invalid && (form.get('numTestTakers')?.dirty || form.get('numTestTakers')?.touched)"
+        />
+        @if (form.get('numTestTakers')?.invalid && (form.get('numTestTakers')?.dirty || form.get('numTestTakers')?.touched)) {
+            <span class="error">Number of test takers is required</span>
+        }
+    </div>
+
+    <button 
+        type="submit" 
+        [disabled]="form.invalid || isSubmitting"
+        >
+        {{ isSubmitting ? 'Adding...' : 'Add School' }}
+        </button>
+    </form>
+
+    @if (submitError && errorMessage) {
+        <p class="error" role="alert">{{ errorMessage }}</p>
+    }
+    
+    @if (submitSuccess) {
+        <p class="success" role="status">School added successfully!</p>
+    }
 </div>
