@@ -28,14 +28,14 @@ export class AddSchool implements OnInit{
   }
 
   ngOnInit(): void {
+    const number = Validators.pattern(/^\d+(\.\d+)?$/);
     this.form = new UntypedFormGroup({
-      // Define form controls here
       name: new FormControl('', Validators.required),
       districtId: new FormControl('', Validators.required),
-      mathScore: new FormControl('', Validators.required),
-      readingScore: new FormControl('', Validators.required),
-      writingScore: new FormControl('', Validators.required),
-      numTestTakers: new FormControl('', Validators.required)
+      mathScore: new FormControl('', [Validators.required, number]),
+      readingScore: new FormControl('', [Validators.required, number]),
+      writingScore: new FormControl('', [Validators.required, number]),
+      numTestTakers: new FormControl('', [Validators.required, number])
     });
   }
   

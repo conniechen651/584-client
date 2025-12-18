@@ -32,12 +32,15 @@
             <label for="mathScore">Math score</label>
             <input 
                 id="mathScore"
-                type="text" 
+                type="number" 
                 formControlName="mathScore" 
                 [attr.aria-invalid]="form.get('mathScore')?.invalid && (form.get('mathScore')?.dirty || form.get('mathScore')?.touched)"
             />
             @if (form.get('mathScore')?.invalid && (form.get('mathScore')?.dirty || form.get('mathScore')?.touched)) {
                 <span class="error">Field is required</span>
+            } 
+            @if (form.get('mathScore')?.hasError('pattern') && (form.get('mathScore')?.touched || form.get('mathScore')?.dirty)){
+                <span class="error">Must be a number</span>
             }
         </div>
 
@@ -45,12 +48,15 @@
             <label for="readingScore">Reading score</label>
             <input 
                 id="readingScore"
-                type="text" 
+                type="number" 
                 formControlName="readingScore" 
                 [attr.aria-invalid]="form.get('readingScore')?.invalid && (form.get('readingScore')?.dirty || form.get('readingScore')?.touched)"
             />
             @if (form.get('readingScore')?.invalid && (form.get('readingScore')?.dirty || form.get('readingScore')?.touched)) {
                 <span class="error">Field is required</span>
+            } 
+            @if (form.get('readingScore')?.hasError('pattern') && (form.get('readingScore')?.touched || form.get('readingScore')?.dirty)){
+                <span class="error">Must be a number</span>
             }
         </div>
 
@@ -58,12 +64,15 @@
             <label for="writingScore">Writing score</label>
             <input 
                 id="writingScore"
-                type="text" 
+                type="number" 
                 formControlName="writingScore" 
                 [attr.aria-invalid]="form.get('writingScore')?.invalid && (form.get('writingScore')?.dirty || form.get('writingScore')?.touched)"
             />
             @if (form.get('writingScore')?.invalid && (form.get('writingScore')?.dirty || form.get('writingScore')?.touched)) {
                 <span class="error">Field is required</span>
+            } 
+            @if (form.get('writingScore')?.hasError('pattern') && (form.get('writingScore')?.touched || form.get('writingScore')?.dirty)){
+                <span class="error">Must be a number</span>
             }
         </div>
 
@@ -72,12 +81,15 @@
             <label for="numTestTakers">Number of test takers</label>
             <input 
                 id="numTestTakers"
-                type="text" 
+                type="number" 
                 formControlName="numTestTakers" 
                 [attr.aria-invalid]="form.get('numTestTakers')?.invalid && (form.get('numTestTakers')?.dirty || form.get('numTestTakers')?.touched)"
             />
             @if (form.get('numTestTakers')?.invalid && (form.get('numTestTakers')?.dirty || form.get('numTestTakers')?.touched)) {
                 <span class="error">Field is required</span>
+            } 
+            @if (form.get('numTestTakers')?.hasError('pattern') && (form.get('numTestTakers')?.touched || form.get('numTestTakers')?.dirty)){
+                <span class="error">Must be a number</span>
             }
         </div>
 
