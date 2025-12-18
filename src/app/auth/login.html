@@ -9,6 +9,18 @@
         <input type="password" formControlName="password" />
         <br />
 
-        <button type="submit">Login</button>
+        <button 
+            type="submit" 
+            [disabled]="form.invalid || isSubmitting"
+        >
+            {{ isSubmitting ? 'Logging in...' : 'Login' }}
+        </button>
     </form>
+    @if (submitError && errorMessage) {
+        <p class="error" role="alert">{{ errorMessage }}</p>
+    }
+    
+    @if (submitSuccess) {
+        <p class="success" role="status">School added successfully!</p>
+    }
 </div>

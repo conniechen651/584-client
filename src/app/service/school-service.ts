@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 export interface DataModel {
   id?: number;
   name: string;
+  districtId: number;
   mathScore: number;
   readingScore: number;
   writingScore: number;

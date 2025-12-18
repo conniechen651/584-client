@@ -43,8 +43,6 @@ export class AddDistrict implements OnInit {
     this.errorMessage = '';
 
     const formData: DataModel = this.form.value;
-
-    console.log('Submitting form data:', formData); // DEBUG
     
     this.dataService.postData(formData).subscribe({
       next: (response) => {

@@ -9,9 +9,9 @@
         <a mat-flat-button color="primary" [routerLink]="['/add-school']">Add School</a> 
         <span class="separator"></span>
         @if (isLoggedIn) {
-            <a mat-flat-button color="primary" (click)="authService.logout()">Logout</a>
+            <a mat-flat-button color="primary" data-testid="logout" (click)="authService.logout()">Logout</a>
         } @else {
-            <a mat-flat-button color="primary" [routerLink]="['/login']">Login</a>
+            <a mat-flat-button color="primary" data-testid="login" [routerLink]="['/login']">Login</a>
         }
     </mat-toolbar>
 </header>

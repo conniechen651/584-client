@@ -1,8 +1,9 @@
 <h1>School List</h1>
-<table class="table table-striped"> 
+<table> 
   <thead>
     <th>Id</th>
     <th>Name</th>
+    <th>District ID</th>
     <th>Math Score</th>
     <th>Reading Score</th>
     <th>Writing Score</th>
@@ -13,6 +14,7 @@
         <tr>
             <td>{{ school.id }}</td>
             <td>{{ school.name }}</td>
+            <td>{{ school.districtId }}</td>
             <td>{{ school.mathScore }}</td>
             <td>{{ school.readingScore }}</td>
             <td>{{ school.writingScore }}</td>
